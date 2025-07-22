@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Limpar Cache - Devocional Cristão</title>
+    <style>
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background-color: #faf9f7;
+            color: #2a2a2a;
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #c89c3f;
+            margin-bottom: 20px;
+        }
+        button {
+            background: linear-gradient(135deg, #c89c3f 0%, #e6c875 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin: 10px;
+        }
+        button:hover {
+            transform: scale(1.05);
+        }
+        .status {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 4px;
+        }
+        .success {
+            background-color: #e6f7e9;
+            color: #16a34a;
+        }
+        .error {
+            background-color: #fee2e2;
+            color: #dc2626;
+        }
+        .actions {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        a {
+            color: #c89c3f;
+            text-decoration: none;
+            margin-top: 10px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Limpar Cache - Devocional Cristão</h1>
+        <p>Use esta página para limpar o cache do seu navegador e ver as alterações mais recentes no site.</p>
+        
+        <button id="clearCacheBtn">Limpar Cache do Navegador</button>
+        <button id="reloadBtn">Recarregar Página Principal</button>
+        
+        <div id="status" class="status" style="display: none;"></div>
+        
+        <div class="actions">
+            <a href="index.html">Voltar para a página principal</a>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('clearCacheBtn').addEventListener('click', function() {
+            const statusEl = document.getElementById('status');
+            
+            // Limpar cache de localStorage
+            try {
+                localStorage.clear();
+                sessionStorage.clear();
+                
+                // Limpar cookies
+                const cookies = document.cookie.split(";");
+                for (let i = 0; i < cookies.length; i++) {
+                    const cookie = cookies[i];
+                    const eqPos = cookie.indexOf("=");
+                    const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+                    document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/";
+                }
+                
+                // Tentar limpar o cache do navegador (funciona em alguns navegadores)
+                if ('caches' in window) {
+                    caches.keys().then(function(names) {
+                        for (let name of names) caches.delete(name);
+                    });
+                }
+                
+                statusEl.textContent = 'Cache limpo com sucesso! Recarregue a página principal para ver as alterações.';
+                statusEl.className = 'status success';
+                statusEl.style.display = 'block';
+            } catch (e) {
+                statusEl.textContent = 'Erro ao limpar cache: ' + e.message;
+                statusEl.className = 'status error';
+                statusEl.style.display = 'block';
+            }
+        });
+        
+        document.getElementById('reloadBtn').addEventListener('click', function() {
+            // Adicionar timestamp para forçar recarregamento sem cache
+            const timestamp = new Date().getTime();
+            window.location.href = 'index.html?nocache=' + timestamp;
+        });
+    </script>
+</body>
+</html>

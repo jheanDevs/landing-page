@@ -17,6 +17,23 @@ const observer = new IntersectionObserver((entries) => {
 
 // Observar todos os elementos com classe fade-in
 document.addEventListener('DOMContentLoaded', () => {
+    // Forçar atualização do cache para CSS
+    const forceCacheRefresh = () => {
+        const links = document.querySelectorAll('link[rel="stylesheet"]');
+        const now = new Date().getTime();
+        links.forEach(link => {
+            if (link.href.includes('styles.css')) {
+                // Se já tiver um parâmetro de versão, mantenha-o, caso contrário adicione timestamp
+                if (!link.href.includes('?v=')) {
+                    link.href = `${link.href}?t=${now}`;
+                }
+            }
+        });
+    };
+    
+    // Executar uma vez na carga inicial
+    forceCacheRefresh();
+    
     const fadeElements = document.querySelectorAll('.fade-in');
     fadeElements.forEach(el => observer.observe(el));
 });
