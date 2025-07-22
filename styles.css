@@ -425,6 +425,9 @@ h1, h2, h3 {
   .benefit-item,
   .solution-card {
     padding: 1.5rem;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 90%;
   }
   
   .section-title {
@@ -434,10 +437,27 @@ h1, h2, h3 {
   .benefit-item {
     flex-direction: column;
     text-align: center;
+    align-items: center;
+  }
+  
+  .benefit-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
   }
   
   .benefit-icon {
     align-self: center;
+    margin-bottom: 0.5rem;
+  }
+  
+  .benefit-content h3 {
+    text-align: center;
+  }
+  
+  .benefit-content p {
+    text-align: center;
   }
 }
 
@@ -445,9 +465,36 @@ h1, h2, h3 {
   .cta-primary {
     padding: 16px 24px;
     font-size: 1rem;
+    width: 90%;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .hero-content {
     padding: 1rem 0;
+  }
+  
+  .bible-verse,
+  .bible-verse-section,
+  .bible-verse-final {
+    padding: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+  }
+  
+  .solution-text {
+    font-size: 1.1rem;
+    padding: 0 0.5rem;
+  }
+  
+  .solution-image {
+    margin-bottom: 1.5rem;
+  }
+  
+  .solution-img {
+    width: 100px;
+    height: 100px;
   }
 }
