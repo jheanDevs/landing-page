@@ -43,6 +43,10 @@ node_modules/
 
 # dotenv environment variables file
 .env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 # next.js build output
 .next
@@ -74,3 +78,11 @@ Thumbs.db
 # Build outputs
 dist/
 build/
+
+# Netlify
+.netlify/
+netlify-functions/
+functions/
+
+# Local Netlify folder
+.netlify

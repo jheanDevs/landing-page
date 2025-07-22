@@ -1,6 +1,10 @@
 # Landing Page - Devocional Cristão 30 Dias
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/your-site-id/deploy-status)](https://app.netlify.com/sites/meudevocional/deploys)
+
 Uma landing page moderna e elegante para um devocional cristão de 30 dias, desenvolvida com HTML, CSS e JavaScript vanilla.
+
+🌐 **Site ao vivo:** [https://meudevocional.netlify.app/](https://meudevocional.netlify.app/)
 
 ## 🎯 Sobre o Projeto
 
@@ -14,6 +18,7 @@ Esta landing page foi criada para promover um devocional cristão de 30 dias, of
 - **Animações Suaves**: Efeitos de fade-in e hover para melhor UX
 - **Referências Bíblicas**: Versículos estrategicamente posicionados
 - **Performance Otimizada**: CSS e JavaScript otimizados
+- **Deploy Automático**: Configurado para Netlify
 
 ## 🎨 Paleta de Cores
 
@@ -25,6 +30,8 @@ Esta landing page foi criada para promover um devocional cristão de 30 dias, of
 - **Cor de Destaque**: `#e6c875` (ouro claro)
 
 ## 🚀 Como Usar
+
+### Desenvolvimento Local
 
 1. Clone o repositório:
 ```bash
@@ -38,6 +45,16 @@ python -m http.server 8000
 
 3. Acesse `http://localhost:8000` no seu navegador
 
+### Deploy no Netlify
+
+Este projeto está configurado para deploy automático no Netlify:
+
+1. **Fork** este repositório
+2. Conecte sua conta do **Netlify** ao GitHub
+3. Selecione este repositório para deploy
+4. O Netlify detectará automaticamente as configurações do `netlify.toml`
+5. Seu site estará disponível em poucos minutos
+
 ## 📁 Estrutura do Projeto
 
 ```
@@ -50,6 +67,8 @@ landing-page/
 ├── index.html
 ├── styles.css
 ├── script.js
+├── netlify.toml          # Configurações do Netlify
+├── .gitignore
 └── README.md
 ```
 
@@ -59,6 +78,7 @@ landing-page/
 - **CSS3**: Estilização com variáveis CSS e animações
 - **JavaScript**: Interações e animações dinâmicas
 - **Google Fonts**: Inter e Playfair Display
+- **Netlify**: Hospedagem e deploy automático
 
 ## 📱 Responsividade
 
@@ -77,9 +97,22 @@ O projeto foi desenvolvido com abordagem mobile-first, garantindo uma experiênc
 
 ## 📖 Referências Bíblicas Incluídas
 
-- Salmos 119:105
-- Jeremias 29:11
-- Colossenses 3:23
+- **Salmos 119:105** - "Lâmpada para os meus pés é a tua palavra e, luz para os meus caminhos."
+- **Jeremias 29:11** - "Porque eu bem sei os pensamentos que tenho a vosso respeito..."
+- **Colossenses 3:23** - "E tudo quanto fizerdes, fazei-o de todo o coração..."
+
+## ⚙️ Configurações do Netlify
+
+O arquivo `netlify.toml` inclui:
+- Configurações de build
+- Redirects para SPA
+- Variáveis de ambiente
+- Otimizações de performance
+
+## 🔗 CTAs Configurados
+
+Todos os botões de Call-to-Action redirecionam para:
+**[https://meudevocional.netlify.app/](https://meudevocional.netlify.app/)**
 
 ## 🤝 Contribuições
 

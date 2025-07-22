@@ -1,3 +1,6 @@
+// URL do site do devocional
+const DEVOCIONAL_URL = 'https://meudevocional.netlify.app/';
+
 // Intersection Observer para animações de fade-in
 const observerOptions = {
     threshold: 0.1,
@@ -32,7 +35,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// Adicionar efeito de hover nos botões CTA
+// Configurar CTAs para redirecionar para o site do devocional
 document.querySelectorAll('.cta-primary').forEach(button => {
     button.addEventListener('mouseenter', function() {
         this.style.transform = 'scale(1.05)';
@@ -42,16 +45,27 @@ document.querySelectorAll('.cta-primary').forEach(button => {
         this.style.transform = 'scale(1)';
     });
     
-    // Adicionar funcionalidade de clique (placeholder)
+    // Adicionar funcionalidade de clique para redirecionar
     button.addEventListener('click', function() {
-        // Aqui você pode adicionar a lógica para redirecionar ou abrir modal
-        console.log('CTA clicado - redirecionar para página de cadastro');
-        
-        // Exemplo de feedback visual
+        // Feedback visual
         this.style.transform = 'scale(0.95)';
+        
+        // Adicionar loading state
+        const originalText = this.textContent;
+        this.textContent = 'Redirecionando...';
+        this.disabled = true;
+        
         setTimeout(() => {
-            this.style.transform = 'scale(1.05)';
-        }, 150);
+            // Redirecionar para o site do devocional
+            window.open(DEVOCIONAL_URL, '_blank');
+            
+            // Restaurar botão após um breve delay
+            setTimeout(() => {
+                this.textContent = originalText;
+                this.disabled = false;
+                this.style.transform = 'scale(1)';
+            }, 1000);
+        }, 500);
     });
 });
 
